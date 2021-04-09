@@ -4,6 +4,10 @@ body {
   font-size: 1.6rem;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;
