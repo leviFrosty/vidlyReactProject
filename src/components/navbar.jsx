@@ -1,15 +1,44 @@
 // Stateless Functional Component
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 
-const NavBar = ({ totalCounter }) => {
+const NavBar = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="https://google.com">
-          Navbar
-          <span className="badge bg-secondary text-white m-2 badge-pill">
-            {totalCounter}
-          </span>
-        </a>
+        <Link className="navbar-brand" to="#">
+          Vidly
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/movies">
+                Movies
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/customers">
+                Customers
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/rentals">
+                Rentals
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import Counter from "./counter";
 
+// Example props to pass:
+
+{
+  /* <Counters
+counters={this.state.counters}
+onReset={this.handleReset}
+onIncrement={this.handleIncrement}
+onDelete={this.handleDelete}
+handleDecrement={this.handleDecrement}
+/> */
+}
+
 class Counters extends Component {
   render() {
     const {
