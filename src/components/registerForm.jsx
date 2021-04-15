@@ -2,20 +2,28 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 
-class Register extends Form {
+class RegisterForm extends Form {
   state = {
     data: { username: "", password: "", name: "" },
-    errors: {},
+    errors: {}
   };
 
   schema = {
-    username: Joi.string().required().label("Username"),
-    password: Joi.string().required().label("Password"),
-    name: Joi.string().required().label("Name"),
+    username: Joi.string()
+      .required()
+      .email()
+      .label("Username"),
+    password: Joi.string()
+      .required()
+      .min(5)
+      .label("Password"),
+    name: Joi.string()
+      .required()
+      .label("Name")
   };
 
   doSubmit = () => {
-    //Call the server
+    // Call the server
     console.log("Submitted");
   };
 
@@ -23,15 +31,15 @@ class Register extends Form {
     return (
       <div>
         <h1>Register</h1>
-        <form onSubmitCapture={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           {this.renderInput("username", "Username")}
           {this.renderInput("password", "Password", "password")}
           {this.renderInput("name", "Name")}
-          {this.renderButton("Login")}
+          {this.renderButton("Register")}
         </form>
       </div>
     );
   }
 }
 
-export default Register;
+export default RegisterForm;
